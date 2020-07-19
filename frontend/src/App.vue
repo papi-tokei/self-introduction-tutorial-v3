@@ -7,7 +7,7 @@
 
     <v-main>
       <v-container>
-        <HelloWorld />
+        <SelfIntroductionMain />
       </v-container>
     </v-main>
 
@@ -22,13 +22,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import SelfIntroductionMain from "./components/SelfIntroductionMain.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld
+    SelfIntroductionMain
   },
 
   data: () => ({
