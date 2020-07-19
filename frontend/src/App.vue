@@ -1,32 +1,38 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app dark>
+    <v-app-bar fixed app>
+      <v-toolbar-title>Self Introduction</v-toolbar-title>
+      <v-spacer />
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <HelloWorld />
+      </v-container>
+    </v-main>
+
+    <v-footer app height="32">
+      <v-col class="text-center py-0"
+        >&copy; {{ new Date().getFullYear() }} papi-tokei all rights
+        reserved.</v-col
+      >
+    </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-#nav {
-  padding: 30px;
-}
+export default Vue.extend({
+  name: "App",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    HelloWorld
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  })
+});
+</script>
