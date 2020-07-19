@@ -33,8 +33,6 @@
               <h3>Hobby</h3>
               <ul>
                 <li v-for="hobby in hobbyList" :key="hobby">{{ hobby }}</li>
-                <!-- <li>{{ hobbyList[1] }}</li>
-                <li>{{ hobbyList[2] }}</li> -->
               </ul>
             </div>
             <div class="mt-6">
@@ -111,7 +109,7 @@ import { SelfIntroductionMainInterface } from "../types/main";
 
 // TODO: エンドポイントを修正する
 const URL =
-  "https://xxxx.execute-api.ap-northeast-1.amazonaws.com/prod/user-data";
+  "https://xxxxxx.execute-api.ap-northeast-1.amazonaws.com/prod/user-data";
 
 export default Vue.extend({
   name: "SelfIntroductionMain",
@@ -156,8 +154,9 @@ export default Vue.extend({
     async getProfileData(): Promise<void> {
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const response: any = await this.axios.post(URL, { method: "get" });
-        this.profileData = response[0];
+        const { data } = await this.axios.post(URL, { method: "get" });
+        console.log(data);
+        this.profileData = data[0];
       } catch (err) {
         console.error(err);
         this.profileData = null;
@@ -177,8 +176,8 @@ export default Vue.extend({
           }
         });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const response: any = await this.axios.post(URL, { method: "get" });
-        this.profileData = response[0];
+        const { data } = await this.axios.post(URL, { method: "get" });
+        this.profileData = data[0];
         this.updateData();
       } catch (err) {
         this.errorMessage = err;
