@@ -10,4 +10,4 @@ API GatewayとDynamoDB、Lambdaを作成するCDKファイル群
 
 ### frontendディレクトリ
 
-Nuxt.js+Vuetifyの構成
+Vue.js+Vuetifyの構成
