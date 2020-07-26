@@ -66,7 +66,7 @@
               ></v-text-field>
               <v-text-field
                 v-for="(hobby, index) in editHobby"
-                :key="hobby"
+                :key="`cdHobby${index}`"
                 v-model="editHobby[index]"
                 :label="`Hobby${index}`"
                 required
