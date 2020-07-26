@@ -4,4 +4,6 @@ import * as cdk from "@aws-cdk/core";
 import { BackendStack } from "../lib/backend-stack";
 
 const app = new cdk.App();
-new BackendStack(app, "BackendStack");
+// TODO: アカウントIDとリージョンを変更すること
+const accountInformation = { account: "xxxxxx", region: "yyyyyy" };
+new BackendStack(app, "BackendStack", { env: accountInformation });
