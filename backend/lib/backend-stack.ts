@@ -13,11 +13,11 @@ export class BackendStack extends cdk.Stack {
     scope: cdk.Construct,
     id: string,
     props?: cdk.StackProps,
-    otherParams?: OtherParamsInterface
+    otherParams: OtherParamsInterface = { suffix: "sample" }
   ) {
     super(scope, id, props);
 
-    const suffix = otherParams;
+    const suffix = otherParams["suffix"];
     const fn = new Function(this, "Function", {
       functionName: `selfIntroductionTutorial_${suffix}`,
       runtime: Runtime.PYTHON_3_8,
