@@ -4,11 +4,20 @@ import { Table, AttributeType } from "@aws-cdk/aws-dynamodb";
 import { Function, Runtime, Code } from "@aws-cdk/aws-lambda";
 import { RestApi, LambdaIntegration, Cors } from "@aws-cdk/aws-apigateway";
 
+interface OtherParamsInterface {
+  suffix: string;
+}
+
 export class BackendStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(
+    scope: cdk.Construct,
+    id: string,
+    props?: cdk.StackProps,
+    otherParams?: OtherParamsInterface
+  ) {
     super(scope, id, props);
 
-    const suffix = "sample";
+    const suffix = otherParams;
     const fn = new Function(this, "Function", {
       functionName: `selfIntroductionTutorial_${suffix}`,
       runtime: Runtime.PYTHON_3_8,
